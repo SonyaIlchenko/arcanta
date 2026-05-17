@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АРКАН-TĀ • Гайд по самоаудиту инклюзивности выставки</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { background: linear-gradient(to bottom, #f8f4ed, #f0e9e0); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .flower { filter: blur(45px); opacity: 0.25; pointer-events: none; }
+        .checklist-item { transition: all 0.2s ease; }
+        .progress-bar { transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        details summary { cursor: pointer; user-select: none; }
+        .section-header { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; }
+    </style>
+</head>
+<body class="text-zinc-900">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-zinc-200">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div>
+                    <span class="text-4xl font-light tracking-[-2.5px]">АРКАН-TĀ</span>
+                </div>
+                <div class="text-xs leading-none font-medium pt-1" style="color: #00416A;">Гайд по самоаудиту<br>инклюзивности выставки</div>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#guide" class="hover:text-[#00416A] transition">Гайд</a>
+                <a href="#example" class="hover:text-[#00416A] transition">Пример</a>
+                <a href="#contacts" class="hover:text-[#00416A] transition">Контакты</a>
+            </nav>
+            <a href="#guide" class="bg-[#00416A] hover:bg-[#003a5e] text-white px-6 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                <i class="fas fa-play"></i> Начать самоаудит
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative min-h-[100dvh] flex items-center overflow-hidden bg-[#f8f4ed]">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-10 left-10 w-[380px] h-[380px] bg-blue-300 rounded-[999px] flower"></div>
+            <div class="absolute top-32 right-16 w-[320px] h-[320px] bg-pink-300 rounded-[999px] flower"></div>
+            <div class="absolute bottom-16 left-1/4 w-[260px] h-[260px] bg-yellow-200 rounded-[999px] flower"></div>
+            <div class="absolute bottom-8 right-1/3 w-[300px] h-[300px] bg-emerald-200 rounded-[999px] flower"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur px-5 py-2 rounded-3xl mb-6 text-sm font-medium" style="color: #00416A;">
+                <i class="fas fa-check-double"></i> 
+                <span>Инструмент на основе 4 кураторских принципов</span>
+            </div>
+            
+            <h1 class="text-7xl md:text-8xl font-light tracking-[-5px] leading-none mb-6">АРКАН-TĀ</h1>
+            <p class="text-3xl md:text-4xl font-light tracking-tight text-zinc-700 mb-4">Гайд по самоаудиту<br>инклюзивности выставки</p>
+            <p class="max-w-md mx-auto text-lg text-zinc-600 mb-10">68 вопросов • 7 блоков • Мгновенный расчёт процента готовности</p>
+            
+            <a href="#guide" 
+               class="inline-flex items-center gap-4 bg-zinc-900 hover:bg-[#00416A] text-white text-xl px-14 py-7 rounded-3xl font-medium transition shadow-xl">
+                Перейти к чек-листу <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ГАЙД -->
+    <section id="guide" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-light tracking-tight">Чек-лист самоаудита</h2>
+                <p class="mt-3 text-xl text-zinc-600">Отвечайте на вопросы и сразу видите результат</p>
+                
+                <div class="mt-8 max-w-md mx-auto">
+                    <div class="flex justify-between text-sm mb-2 font-medium px-1">
+                        <span>Общий процент инклюзивности</span>
+                        <span id="percent" class="font-bold text-lg" style="color: #00416A;">0%</span>
+                    </div>
+                    <div class="h-3 bg-zinc-200 rounded-3xl overflow-hidden">
+                        <div id="progress" class="h-3 rounded-3xl progress-bar w-0" style="background: linear-gradient(to right, #00416A, #003a5e);"></div>
+                    </div>
+                    <p class="text-xs text-zinc-500 mt-1.5">Заполняйте селекты — процент обновляется автоматически</p>
+                </div>
+            </div>
+
+            <!-- ЧЕК-ЛИСТ (все 68 вопросов) -->
+            <div id="checklist" class="space-y-10">
+
+                <!-- БЛОК 1 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm" open>
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>01</span> Планирование и кураторская этика <span class="text-xs font-normal text-zinc-500">(12 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.1 Участвовали ли художники с инвалидностью в разработке концепции выставки как со-кураторы?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.2 Учитывает ли концепция разнообразие опыта и перспектив людей с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.3 Есть ли в команде со-кураторы или консультанты с личным опытом инвалидности?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.4 Проводилась ли предварительная консультация с сообществами людей с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.5 Разработаны ли механизмы для предотвращения токенизма при участии художников?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.6 Учтены ли этические принципы репрезентации инвалидности в материалах выставки?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.7 Есть ли политика равного доступа к ресурсам и возможностям для всех участников?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.8 Включены ли художники с инвалидностью в принятие решений на всех этапах проекта?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.9 Учтена ли интерсекциональность (пересечение инвалидности с другими идентичностями)?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.10 Есть ли план по документированию и рефлексии процесса со-кураторства?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.11 Проводится ли оценка предыдущих проектов на предмет инклюзивности?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">1.12 Разработаны ли четкие критерии для оценки инклюзивности на этапе планирования?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+                <!-- БЛОК 2 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm">
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>02</span> Физическая доступность пространства <span class="text-xs font-normal text-zinc-500">(10 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.1 Обеспечена ли беспрепятственная доступность всех зон выставки для людей с ограниченной мобильностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.2 Соответствуют ли проходы и навигация требованиям для колясок и других средств передвижения?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.3 Есть ли тактильные указатели и рельефные схемы для незрячих посетителей?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.4 Установлены ли пандусы, лифты или подъемники там, где это необходимо?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.5 Достаточно ли мест для отдыха и ожидания в выставочном пространстве?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.6 Обеспечена ли доступность санитарных комнат и других вспомогательных помещений?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.7 Учтены ли потребности людей с ограниченной подвижностью при размещении экспонатов?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.8 Есть ли четкая и понятная навигация по выставке (включая шрифт, контраст, тактильные элементы)?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.9 Проводилась ли проверка пространства на соответствие стандартам доступности?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">2.10 Есть ли план по адаптации пространства под индивидуальные запросы посетителей?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+                <!-- БЛОК 3 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm">
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>03</span> Информационная доступность <span class="text-xs font-normal text-zinc-500">(10 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.1 Продублированы ли все текстовые материалы шрифтом Брайля?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.2 Есть ли аудиоописания (тифлокомментарии) для визуальных экспонатов?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.3 Обеспечен ли сурдоперевод или качественные субтитры для видео и аудиоматериалов?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.4 Используется ли простой и понятный язык в описаниях работ (Easy Read)?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.5 Есть ли QR-коды или другие цифровые инструменты для доступа к дополнительной информации?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.6 Учтены ли потребности людей с нарушениями зрения и слуха в дизайне этикеток и материалов?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.7 Есть ли версии материалов в крупном шрифте и с высоким контрастом?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.8 Обеспечена ли доступность сайта и онлайн-ресурсов выставки?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.9 Проводится ли тестирование информационных материалов с участием людей с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">3.10 Есть ли план по регулярному обновлению информации с учетом обратной связи?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+                <!-- БЛОК 4 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm">
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>04</span> Мультисенсорность и универсальный дизайн <span class="text-xs font-normal text-zinc-500">(10 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.1 Включены ли тактильные экспонаты или качественные копии для незрячих посетителей?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.2 Используются ли звуковые элементы или аудиоинсталляции в экспозиции?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.3 Есть ли ольфакторные (запаховые) компоненты, связанные с темой выставки?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.4 Учтены ли сенсорные особенности посетителей (тихие зоны, избегание перегрузки)?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.5 Применяются ли принципы универсального дизайна при создании экспонатов и пространства?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.6 Есть ли интерактивные элементы, доступные для людей с разными возможностями?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.7 Обеспечена ли возможность тактильного изучения экспонатов (где это безопасно)?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.8 Учтены ли потребности людей с аутизмом и другими сенсорными особенностями?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.9 Есть ли мультисенсорные станции или зоны для углубленного восприятия?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">4.10 Проводится ли оценка сенсорной доступности экспозиции?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+                <!-- БЛОК 5 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm">
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>05</span> Принцип участия <span class="text-xs font-normal text-zinc-500">(8 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.1 Художники с инвалидностью участвуют в монтаже и подготовке выставки?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.2 Есть ли механизмы регулярной обратной связи от художников на всех этапах?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.3 Учтены ли пожелания и потребности участников с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.4 Есть ли поддержка (ассистенты, переводчики) для участия художников?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.5 Проводятся ли встречи и обсуждения с участием всех заинтересованных сторон?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.6 Уважается ли автономия и авторство художников с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.7 Есть ли возможности для художников с инвалидностью делиться своим опытом?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">5.8 Включены ли художники в продвижение и коммуникацию о выставке?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+                <!-- БЛОК 6 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm">
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>06</span> Пересечение аудиторий <span class="text-xs font-normal text-zinc-500">(8 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.1 Разработаны ли программы для привлечения разнообразной аудитории?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.2 Учтены ли потребности разных групп посетителей (возраст, культура, способности)?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.3 Есть ли специальные мероприятия для смешанной аудитории?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.4 Проводится ли анализ посещаемости и обратной связи от разных групп?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.5 Есть ли партнерства с организациями, работающими с людьми с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.6 Учтены ли барьеры для посещения выставки разными группами?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.7 Разработаны ли инклюзивные образовательные программы?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">6.8 Есть ли план по постоянному расширению аудитории через инклюзивные практики?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+                <!-- БЛОК 7 -->
+                <details class="bg-white border border-zinc-200 rounded-3xl p-8 shadow-sm">
+                    <summary class="section-header flex items-center gap-3" style="color: #00416A;">
+                        <span>07</span> Общая оценка, финансы и устойчивость <span class="text-xs font-normal text-zinc-500">(10 вопросов)</span>
+                    </summary>
+                    <div class="mt-8 space-y-5">
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.1 Выделен ли достаточный бюджет на обеспечение инклюзивности?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.2 Включены ли расходы на адаптацию в общий бюджет проекта?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.3 Есть ли план по устойчивому развитию инклюзивных практик после выставки?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.4 Проводится ли оценка эффективности инклюзивных мер?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.5 Есть ли механизмы для сбора и анализа обратной связи от посетителей с инвалидностью?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.6 Учтены ли долгосрочные аспекты доступности в планировании?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.7 Есть ли стратегия по обучению персонала инклюзивным практикам?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.8 Проводится ли мониторинг соответствия нормативным требованиям?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.9 Есть ли план по масштабированию успешных практик на другие проекты?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                        <div class="checklist-item flex gap-4 items-start"><div class="flex-1 text-[15px]">7.10 Оценена ли общая инклюзивность проекта и определены ли области для улучшения?</div><select onchange="calculateScore()" class="border border-zinc-300 rounded-2xl px-4 py-1.5 text-sm min-w-[110px]"><option value="1">Да</option><option value="0.5">Частично</option><option value="0" selected>Нет</option></select></div>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-4 justify-center">
+                <button onclick="resetAll()" class="px-8 py-3 rounded-2xl border border-zinc-300 hover:bg-zinc-100 transition flex items-center gap-2 text-sm font-medium">
+                    <i class="fas fa-undo"></i> Сбросить все ответы
+                </button>
+                <button onclick="showSummary()" class="px-8 py-3 rounded-2xl text-white transition flex items-center gap-2 text-sm font-medium" style="background-color: #00416A; hover:background-color: #003a5e;">
+                    <i class="fas fa-chart-bar"></i> Показать итоговую сводку
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРИМЕР -->
+    <section id="example" class="py-16 bg-[#f8f4ed]">
+        <div class="max-w-5xl mx-auto px-8 text-center">
+            <h2 class="text-4xl font-light tracking-tight mb-4">Пример использования</h2>
+            <p class="text-xl text-zinc-600 mb-10 max-w-2xl mx-auto">Выставка «АРКАН-TĀ» прошла самоаудит и получила <span class="font-semibold" style="color: #00416A;">92%</span></p>
+            
+            <div class="max-w-md mx-auto bg-white rounded-3xl p-8 shadow-xl text-left">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <div class="text-sm text-zinc-500">Итоговый результат</div>
+                        <div class="text-6xl font-light" style="color: #00416A;">92%</div>
+                    </div>
+                    <div class="text-right text-sm text-zinc-500">отлично</div>
+                </div>
+                <div class="text-sm text-zinc-600">Сильные стороны: со-кураторство, мультисенсорность, универсальный дизайн. Рекомендация: усилить работу с финансами и устойчивостью практик.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacts" class="bg-zinc-900 text-white py-14">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-6">
+                <div>
+                    <div class="text-3xl font-light tracking-[-1px] mb-1">АРКАН-TĀ</div>
+                    <div class="text-[#00416A] text-sm">Гайд по самоаудиту инклюзивности выставки</div>
+                </div>
+                
+                <div class="text-sm space-y-1">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope w-4"></i>
+                        <a href="mailto:arcanta@gmail.com" class="hover:text-[#00416A] transition">arcanta@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-phone w-4"></i>
+                        <a href="tel:+79614444444" class="hover:text-[#00416A] transition">+7 (961) 444-44-44</a>
+                    </div>
+                </div>
+                
+                <div class="text-xs text-zinc-500 max-w-[220px] md:text-right">
+                    Проект разработан в рамках исследования<br>инклюзивных практик в современном искусстве
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            const selects = document.querySelectorAll('#checklist select');
+            let total = 0;
+            let answered = 0;
+
+            selects.forEach(select => {
+                const value = parseFloat(select.value);
+                if (!isNaN(value)) {
+                    total += value;
+                    answered++;
+                }
+            });
+
+            const percent = answered > 0 ? Math.round((total / answered) * 100) : 0;
+            
+            const percentEl = document.getElementById('percent');
+            const progressEl = document.getElementById('progress');
+            
+            percentEl.textContent = percent + '%';
+            progressEl.style.width = percent + '%';
+        }
+
+        function resetAll() {
+            const selects = document.querySelectorAll('#checklist select');
+            selects.forEach(s => s.value = "0");
+            calculateScore();
+        }
+
+        function showSummary() {
+            const selects = document.querySelectorAll('#checklist select');
+            let total = 0;
+            let answered = 0;
+            let yes = 0, partial = 0, no = 0;
+
+            selects.forEach(select => {
+                const value = parseFloat(select.value);
+                if (!isNaN(value)) {
+                    total += value;
+                    answered++;
+                    if (value === 1) yes++;
+                    else if (value === 0.5) partial++;
+                    else no++;
+                }
+            });
+
+            const percent = answered > 0 ? Math.round((total / answered) * 100) : 0;
+            
+            let recommendation = '';
+            if (percent >= 85) recommendation = 'Отличный результат! Можно масштабировать практики на другие проекты.';
+            else if (percent >= 70) recommendation = 'Хороший уровень. Рекомендуется усилить работу в блоках с низкими оценками.';
+            else if (percent >= 50) recommendation = 'Средний результат. Стоит уделить внимание блокам с оценками ниже 50%.';
+            else recommendation = 'Требуется серьезная доработка. Начните с блоков планирования и физической доступности.';
+
+            alert(`Итог самоаудита АРКАН-TĀ\n\nОбщий процент: ${percent}%\nОтвечено вопросов: ${answered} из ${selects.length}\nДа: ${yes} | Частично: ${partial} | Нет: ${no}\n\nРекомендация:\n${recommendation}`);
+        }
+
+        window.onload = function() {
+            calculateScore();
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'r' && document.activeElement.tagName === 'BODY') {
+                e.preventDefault();
+                resetAll();
+            }
+        });
+    </script>
+</body>
+</html>
